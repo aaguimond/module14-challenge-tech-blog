@@ -1,0 +1,7 @@
+{{#each posts}}
+    <div class="post">
+        <h2 class="post-title">{{this.title}}</h2>
+        <p class="post-content">{{this.content}}</p>
+        <p class="post-author">{{this.user.username}}</p>
+    </div>
+{{/each}}
