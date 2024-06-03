@@ -1,0 +1,15 @@
+<h2>Your Dashboard</h2>
+
+{{#each posts}}
+    <div class="post">
+        <h3>{{this.title}}</h3>
+        <p>{{this.content}}</p>
+        <a href="/edit-post/{{this.id}}">Edit</a>
+    </div>
+{{else}}
+    <p>No posts yet. Click <a href="/new-post">here</a> to create a post.</p>
+{{/each}}
+
+<a href="/new-post">Create a new post</a>
+
+<script src="/public/js/dashboard.js"></script>
