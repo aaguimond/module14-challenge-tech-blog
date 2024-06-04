@@ -2,6 +2,7 @@ const sequelize = require('../config/connection');
 const seedUsers = require('./userData');
 const seedPosts = require('./postData');
 const seedComments = require('./commentData');
+
 // Seed data
 const seedAll = async () => {
     // Sync database, create tables
