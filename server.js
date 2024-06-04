@@ -3,20 +3,22 @@ const exphbs = require('express-handlebars');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const path = require('path');
+const routes = require('./controllers');
+const sequelize = require('./config/connection');
 const hbs = exphbs.create({});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const sequelize = require('./config/connection');
 // Defining session attributes: string to verify, cookie defaults, no resave, new instance of SeqStore and saved to db
 const sess = {
     secret: 'example123',
     cookie: {},
     resave: false,
+    saveUninitialized: true,
     store: new SequelizeStore({
-        db: sequelize
-    })
+        db: sequelize,
+    }),
 };
 // Initialize session middleware
 app.use(session(sess));
@@ -27,8 +29,8 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
-// Linking routes in controllers folder
-app.use(require('./controllers'));
+// Linking routes
+app.use(routes);
 // Sync sequelize with db, prevent existing db data from being dropped
 sequelize.sync({ force: false }).then(() => {
     // Initialize server and state that it's listening

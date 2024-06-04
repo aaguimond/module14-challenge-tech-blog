@@ -19,6 +19,10 @@ User.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         // Each user's email must be unique and be in an email format
         email: {
             type: DataTypes.STRING,
