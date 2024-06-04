@@ -5,7 +5,7 @@ const { User } = require('../../models');
 router.post('/', async (req, res) => {
     try {
         const userData = await User.create(req.body);
-        // Logs user in after creation
+        // Logs new user in after creation
         req.session.save(() => {
             req.session.user_id = userData.id;
             req.session.loggedIn = true;

@@ -27,7 +27,7 @@ router.delete('/:id', withAuth, async (req, res) => {
                 user_id: req.session.user_id,
             },
         });
-        // If not deletedComment found, return error
+        // If no deletedComment found, return error
         if (!deletedComment) {
             res.status(404).json({ message: 'No comment found with this ID.' });
             return;
