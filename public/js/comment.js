@@ -2,9 +2,11 @@
 const commentFormHandler = async (event) => {
     // Prevent page from reloading
     event.preventDefault();
+    
+    const form = event.target;
     // Gathering user input for comment text from the form and the post ID it's associated with
-    const comment_text = document.querySelector('#comment-text').value.trim();
-    const post_id = document.querySelector('#post-id').value.trim();
+    const comment_text = form.querySelector('textarea[name="comment-text"]').value.trim();
+    const post_id = form.querySelector('input[name="post-id"]').value.trim();
     // If the comment text and post both exist,
     if (comment_text && post_id) {
         // Send the data to the server
@@ -23,5 +25,28 @@ const commentFormHandler = async (event) => {
         }
     }
 };
+
+const deleteCommentHandler = async (event) => {
+    if (event.target.classList.contains('delete-comment-btn')) {
+        const id = event.target.getAttribute('data-id');
+
+        const response = await fetch(`/api/comments/${id}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.reload();
+        } else {
+            alert('Failed to delete comment');
+        }
+    }
+};
 // Adding an event listener to the form after defining the form handler
-document.querySelector('.comment-form').addEventListener('submit', commentFormHandler);
+document.querySelectorAll('.comment-form').forEach(form => {
+    form.addEventListener('submit', commentFormHandler);
+});
+
+document.querySelectorAll('.delete-comment-btn').forEach(button => {
+    button.addEventListener('click', deleteCommentHandler);
+});

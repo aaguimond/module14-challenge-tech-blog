@@ -1,6 +1,6 @@
 {{#each posts}}
     <div class="post">
-        <h2 class="post-title">{{this.title}}</h2>
+        <h2 class="post-title"><a href="/post/{{this.id}}">{{this.title}}</a></h2>
         <p class="post-content">{{this.content}}</p>
         <p class="post-author">{{this.user.username}}</p>
 
@@ -10,11 +10,31 @@
             <div class="comment">
                 <p>{{this.comment_text}}</p>
                 <p class="comment-author-block">By <span class="comment-author">{{this.user.username}}</span> on {{this.createdAt}}</p>
+                {{#if ../loggedIn}}
+                    {{#ifCond this.user_id ../loggedInUser.id}}
+                        <button class="delete-comment-btn" data-id="{{this.id}}">Delete</button>
+                    {{/ifCond}}
+                {{/if}}
             </div>
         {{else}}
             <p>Be the first to comment</p>
         {{/each}}
+
+        {{#if loggedIn}}
+            <form class="comment-form">
+                <input type="hidden" name="post-id" value="{{this.id}}">
+                <div>
+                    <label for="comment-text-{{this.id}}">Comment:</label>
+                    <textarea id="comment-text-{{this.id}}" name="comment_text" required></textarea>
+                </div>
+                <button type="submit">Add Comment</button>
+            </form>
+        {{else}}
+            <p><a href="/login">Log in</a> to add a comment</p>
+        {{/if}}
     </div>
 {{else}}
     <p>No posts yet.</p>
 {{/each}}
+
+<script src="/js/comment.js"></script>

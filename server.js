@@ -5,7 +5,21 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const path = require('path');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({
+    // Custom helper function
+    helpers: {
+        // Used in post.handlebars to conditionally show delete button if the user that authored the comment is logged in
+        ifCond: function (v1, v2, options) {
+            // v1 = user_id, and v2 = loggedInUser.id, so if the user_id of the comment equals the loggedInUser.id,
+            if (v1 === v2) {
+                // the custom helper code block in the post.handlebars is rendered
+                return options.fn(this);
+            }
+            // If not, nothing is rendered
+            return options.inverse(this);
+        }
+    }
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
