@@ -4,12 +4,12 @@
     <div class="post">
         <h3>{{this.title}}</h3>
         <p>{{this.content}}</p>
-        <a href="/edit-post/{{this.id}}">Edit</a>
+        <a href="/dashboard/edit-post/{{this.id}}">Edit</a>
     </div>
 {{else}}
-    <p>No posts yet. Click <a href="/new-post">here</a> to create a post.</p>
+    <p>No posts yet. Click <a href="/dashboard/new-post">here</a> to create a post.</p>
 {{/each}}
 
-<a href="/new-post">Create a new post</a>
+<a href="/dashboard/new-post">Create a new post</a>
 
 <script src="/js/dashboard.js"></script>

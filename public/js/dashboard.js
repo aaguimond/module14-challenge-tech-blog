@@ -24,4 +24,7 @@ const newFormHandler = async (event) => {
     }
 };
 // Adding an event listener to the form after defining the form handler
-document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+const form = document.querySelector('.new-post-form');
+if (form) {
+    form.addEventListener('submit', newFormHandler);
+}

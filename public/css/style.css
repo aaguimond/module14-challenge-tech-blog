@@ -83,6 +83,22 @@ form button:hover {
     line-height: 1.5;
 }
 
+.post h3 {
+    margin-top: 1rem;
+}
+
+.comment-author {
+    color: slateblue;
+    font-size: 0.75rem;
+    font-style: normal;
+}
+
+.comment-author-block {
+    font-style: italic;
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
 .post-author {
     color: slateblue;
     font-size: 0.85rem;

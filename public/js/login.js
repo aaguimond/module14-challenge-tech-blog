@@ -8,7 +8,7 @@ document.querySelector('.login-form').addEventListener('submit', async (event) =
     // If email and password are truthy,
     if (email && password) {
         // Sends login info to the login request logic
-        const response = await fetch('/api/user/login', {
+        const response = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({ email, password }),
             headers: { 'Content-Type': 'application/json' },
