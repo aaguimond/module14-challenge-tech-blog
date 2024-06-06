@@ -1,11 +1,10 @@
-// Handling new blog comments
 const commentFormHandler = async (event) => {
     // Prevent page from reloading
     event.preventDefault();
-    
+
     const form = event.target;
     // Gathering user input for comment text from the form and the post ID it's associated with
-    const comment_text = form.querySelector('textarea[name="comment-text"]').value.trim();
+    const comment_text = form.querySelector('textarea[name="comment_text"]').value.trim();
     const post_id = form.querySelector('input[name="post-id"]').value.trim();
     // If the comment text and post both exist,
     if (comment_text && post_id) {
@@ -42,6 +41,7 @@ const deleteCommentHandler = async (event) => {
         }
     }
 };
+
 // Adding an event listener to the form after defining the form handler
 document.querySelectorAll('.comment-form').forEach(form => {
     form.addEventListener('submit', commentFormHandler);

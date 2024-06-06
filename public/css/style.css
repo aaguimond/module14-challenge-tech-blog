@@ -75,6 +75,10 @@ form button:hover {
     box-shadow: 0 0 10px rgb(41, 41, 32);
 }
 
+.post-hover:hover {
+    box-shadow: 0 0 10px rgb(202, 202, 0);
+}
+
 .post h2 {
     margin-top: 0;
 }
@@ -85,6 +89,21 @@ form button:hover {
 
 .post h3 {
     margin-top: 1rem;
+}
+
+.create-post {
+    margin-left: 2rem;
+}
+
+.create-post-btn {
+    background-color: goldenrod;
+    font-size: 1.15rem;
+}
+
+.comments-title {
+    color: rgb(41, 41, 32);
+    border-bottom: 2px solid rgb(20, 20, 17);
+    margin-bottom: 0.25rem;
 }
 
 .comment-author {
@@ -102,4 +121,14 @@ form button:hover {
 .post-author {
     color: slateblue;
     font-size: 0.85rem;
+    font-style: normal;
+}
+
+.delete-post-btn {
+    background-color: darkred;
+    color: cornsilk;
+}
+
+.edit-post-btn {
+    background-color: aquamarine;
 }

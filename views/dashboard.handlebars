@@ -2,14 +2,20 @@
 
 {{#each posts}}
     <div class="post">
-        <h3>{{this.title}}</h3>
+        <h2><a href="/post/{{this.id}}" class="post-hover">{{this.title}}</a></h2>
         <p>{{this.content}}</p>
-        <a href="/dashboard/edit-post/{{this.id}}">Edit</a>
+        <button class="delete-post-btn" data-id="{{this.id}}">Delete Post</button>
+        <a href="/dashboard/edit-post/{{this.id}}">
+            <button class="edit-post-btn">Edit Post</button>
+        </a>
     </div>
 {{else}}
     <p>No posts yet. Click <a href="/dashboard/new-post">here</a> to create a post.</p>
 {{/each}}
 
-<a href="/dashboard/new-post">Create a new post</a>
+<a href="/dashboard/new-post" class="create-post">
+    <button class="create-post-btn">Create a new post</button>
+</a>
 
 <script src="/js/dashboard.js"></script>
+<script src="/js/deletePost.js"></script>

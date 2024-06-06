@@ -24,5 +24,6 @@ const editFormHandler = async (event) => {
         }
     }
 };
+
 // Adding an event listener to the form after defining the form handler
 document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);

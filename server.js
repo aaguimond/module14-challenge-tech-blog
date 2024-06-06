@@ -5,6 +5,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const path = require('path');
 const routes = require('./controllers');
 const sequelize = require('./config/connection');
+const dayjs = require('dayjs');
 const hbs = exphbs.create({
     // Custom helper function
     helpers: {
@@ -17,6 +18,9 @@ const hbs = exphbs.create({
             }
             // If not, nothing is rendered
             return options.inverse(this);
+        },
+        formatDate: function (date) {
+            return dayjs(date).format('MMMM D, YYYY h:mm A');
         }
     }
 });
