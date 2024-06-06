@@ -2,7 +2,7 @@
     <div class="post">
         <h2 class="post-title"><a href="/post/{{this.id}}" class="post-hover">{{this.title}}</a></h2>
         <p class="post-content">{{this.content}}</p>
-        <p class="post-author">Created by {{this.user.username}} on {{formatDate this.createdAt}}</p>
+        <p class="post-home-details">Created by <span class="post-author">{{this.user.username}}</span> on {{formatDate this.createdAt}}</p>
 
         <h3 class="comments-title">Comments</h3>
 
