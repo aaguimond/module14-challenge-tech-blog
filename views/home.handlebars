@@ -12,7 +12,7 @@
                 <p class="comment-author-block">By <span class="comment-author">{{this.user.username}}</span> on {{formatDate this.createdAt}}</p>
             </div>
         {{else}}
-            <a href="/post/{{this.id}}">Be the first to comment</a>
+            <a href="/post/{{this.id}}" class="be-first-to-comment">Be the first to comment</a>
         {{/each}}
 
         {{#if loggedIn}}
