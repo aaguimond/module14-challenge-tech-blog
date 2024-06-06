@@ -34,14 +34,27 @@
 
 [GitHub Repository](https://github.com/aaguimond/module14-challenge-tech-blog)
 
-[Live MVC Tech Blog](placeholder.com)
+[Live MVC Tech Blog](https://module14-challenge-tech-blog.onrender.com/)
 
 
 ## Media for Application
 
-![placeholder](placeholder)
 
+An image showing the blog's home page
+---------------------------------------
+![tech blog home page](/public/screenshots/TechBlogHome.png)
 
+An image showing the blog's dashboard page
+---------------------------------------
+![tech blog dashboard page](/public/screenshots/TechBlogDashboard.png)
+
+An image showing the blog's post edit page
+---------------------------------------
+![tech blog post edit page](/public/screenshots/TechBlogEditPost.png)
+
+An image showing the blog's comment form page
+---------------------------------------
+![tech blog comment form](/public/screenshots/TechBlogCommentForm.png)
 
 
 ## Purpose
